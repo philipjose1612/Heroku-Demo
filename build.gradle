@@ -97,10 +97,8 @@ webdriverBinaries {
 }
 
 tasks.withType(Test) {
-    systemProperty "geb.env", System.getProperty('geb.env')
-    systemProperty "geb.build.reportsDir", reporting.file("geb/integrationTest")
-    systemProperty "webdriver.chrome.driver", System.getProperty('webdriver.chrome.driver')
-    systemProperty "webdriver.gecko.driver", System.getProperty('webdriver.gecko.driver')
+    scanForTestClasses = false
+    include "**/*Test.class" // whatever Ant pattern matches your test class files
 }
 
 
